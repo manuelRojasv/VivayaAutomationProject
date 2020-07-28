@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="URL" value="https://stage.vivayalive.com"/>
+    <test name="Test on Chrome" >
+        <parameter name="BrowserType" value="Chrome"/>
+        <classes>
+            <!--class name="VivayaTests.BasicTests">
+                <methods>
+                    <include name="verify_Valid_Guide_Login"/>
+                    <include name="verify_Valid_Seeker_Login"/>
+                </methods>
+            </class-->
+            <class name="VivayaTests.EventsTests">
+
+            </class>
+        </classes>
+    </test>
+</suite>
