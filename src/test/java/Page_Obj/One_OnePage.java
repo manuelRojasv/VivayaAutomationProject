@@ -3,9 +3,6 @@ package Page_Obj;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class One_OnePage {
     WebDriver driver;
@@ -27,9 +24,12 @@ public class One_OnePage {
         driver.findElement(By.tagName("body")).sendKeys("This is a Description for One on One Event");
         driver.switchTo().defaultContent();
 
-        driver.findElement(By.cssSelector("i.glyphicon.glyphicon-calendar")).click();
-        driver.findElement(By.cssSelector("th.next")).click();
-        driver.findElement(By.xpath("//tr[5]/td[7]")).click();
+        driver.findElement(By.cssSelector("span.input-group-addon")).click();
+        driver.findElement(By.xpath("//tr[5]/td[5]")).click();
+        driver.findElement(By.name("EventForm[session_offering_id][]")).click();
+        driver.findElement(By.xpath("(//input[@name='EventForm[session_offering_id][]'])[2]")).click();
+        driver.findElement(By.xpath("(//input[@name='EventForm[session_offering_id][]'])[3]")).click();
+        driver.findElement(By.xpath("(//input[@name='EventForm[session_offering_id][]'])[4]")).click();
 
         driver.findElement(add_Submit).click();
     }

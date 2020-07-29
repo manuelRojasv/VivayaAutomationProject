@@ -11,7 +11,7 @@ public class DashboardPage {
     WebDriver driver;
     By add_new_Event = By.cssSelector("a.btn.btn-default.show-modal-btn");
     By add_Workshop = By.cssSelector("div.add-event-buttons > a.btn.btn-primary");
-    By add_Session = By.xpath("//a[contains(text(),'Add Session')]");
+    By add_Session = By.xpath("//a[.='Add 1-1 Session']");
     By add_Class = By.xpath("//a[contains(text(),'Add Class')]");
     By cancel_Event = By.xpath("/html/body/div[2]/div[2]/div/div[2]/div[1]/div[2]/div/p[5]/a[2]");
     By yes_Delete_Event = By.cssSelector("button.btn.btn-success");
