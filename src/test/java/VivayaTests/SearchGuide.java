@@ -1,8 +1,6 @@
 package VivayaTests;
 
-import Page_Obj.GuidesPage;
-import Page_Obj.HomePage;
-import Page_Obj.LoginPage;
+import Page_Obj.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,45 +24,46 @@ public class SearchGuide {
         if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-            HomePage objHome = new HomePage(driver);
-            LoginPage objLogin = new LoginPage(driver);
             driver.get(url);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            //objHome.click_Login_Link();
-            //objLogin.set_Guide_Credentials("vivaya.automation.two@gmail.com", "automation2");
-            //objLogin.set_Seeker_Credentials("vivaya.automation.two@gmail.com", "automation1");
-
 
         }
 
         System.out.println("Opening" + browserType);
     }
 
-    /*@AfterClass
-    public void Teardown() {
-        driver.close();
-        driver.quit();
-    }*/
+    @Test
+    public void login_search_Guide() throws InterruptedException {
+        HomePage objHome = new HomePage(driver);
+        LoginPage objLogin = new LoginPage(driver);
+        SeekerDashboardPage objSeeker = new SeekerDashboardPage(driver);
+        GuidesPage objGuides = new GuidesPage(driver);
+        Thread.sleep(3000);
+        objHome.click_Login_Link();
+        objLogin.set_Seeker_Credentials("alejandra@seeker.com", "user7890");
+        Thread.sleep(3000);
+        objGuides.search_Guide("valeria fernandez");
+        String GuideName=objGuides.verify_Guide_name();
+        Assert.assertEquals(GuideName, "valeria fernandez");
+        System.out.println("Guide: " + GuideName);
+        objSeeker.perform_Logout();
+    }
 
-    @Test(enabled = false)
+    @Test
     public void search_Guide() throws InterruptedException {
         GuidesPage objGuides = new GuidesPage(driver);
         Thread.sleep(3000);
-        objGuides.search_Guide("automation");
-        WebElement sucessTest = driver.findElement(By.tagName("a"));
+        objGuides.search_Guide("valeria fernandez");
+        String GuideName=objGuides.verify_Guide_name();
+        Assert.assertEquals(GuideName, "valeria fernandez");
+        System.out.println("Guide: " + GuideName);
 
-        System.out.println("Printing " + sucessTest.getAttribute("title"));
-
-        //Assert.assertEquals(sucessTest, "automation user");
     }
-    @Test (enabled = true)
-    public void search_select_Found_Guide() throws InterruptedException {
-        GuidesPage objGuides = new GuidesPage(driver);
-        Thread.sleep(3000);
-        objGuides.search_Guide("manu rove");
-        objGuides.select_Single_Guide("manu rove");
 
+    @AfterClass
+    public void close(){
+        driver.close();
     }
 
 
