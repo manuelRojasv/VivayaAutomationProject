@@ -36,12 +36,6 @@ public class HomePage {
         driver.findElement(By.linkText(eventName)).click();
     }
 
-    public void select_Guide_from_Home (){
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0,2500)");
-        driver.findElement((select_Guide)).click();
-
-    }
 
 
 }

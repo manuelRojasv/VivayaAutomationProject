@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class EventPageDetails {
     WebDriver driver;
-    By book_WS_Button = By.xpath("//a[.='Book Workshop']");
+    By book_button_from_Event_Detail = By.cssSelector("a.btn");
     By cancel_Event = By.xpath("//a[.='Cancel Event']");
     By yes_Delete_Event = By.cssSelector("button.btn.btn-success");
 
@@ -13,8 +13,8 @@ public class EventPageDetails {
         this.driver = driver;
     }
 
-    public void book_Workshop (){
-        driver.findElement(book_WS_Button).click();
+    public void select_book_Button_from_Event_Detail (){
+        driver.findElement(book_button_from_Event_Detail).click();
 
     }
     public void cancel_Event() throws InterruptedException {

@@ -31,9 +31,9 @@ public class SearchGuide {
             driver.get(url);
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-            objHome.click_Login_Link();
+            //objHome.click_Login_Link();
             //objLogin.set_Guide_Credentials("vivaya.automation.two@gmail.com", "automation2");
-            objLogin.set_Seeker_Credentials("vivaya.automation.two@gmail.com", "automation1");
+            //objLogin.set_Seeker_Credentials("vivaya.automation.two@gmail.com", "automation1");
 
 
         }
@@ -47,7 +47,7 @@ public class SearchGuide {
         driver.quit();
     }*/
 
-    @Test
+    @Test(enabled = false)
     public void search_Guide() throws InterruptedException {
         GuidesPage objGuides = new GuidesPage(driver);
         Thread.sleep(3000);
@@ -57,6 +57,13 @@ public class SearchGuide {
         System.out.println("Printing " + sucessTest.getAttribute("title"));
 
         //Assert.assertEquals(sucessTest, "automation user");
+    }
+    @Test (enabled = true)
+    public void search_select_Found_Guide() throws InterruptedException {
+        GuidesPage objGuides = new GuidesPage(driver);
+        Thread.sleep(3000);
+        objGuides.search_Guide("manu rove");
+        objGuides.select_Single_Guide("manu rove");
 
     }
 
