@@ -31,7 +31,7 @@ public class WhatWeOfferLinks {
         System.out.println("Opening" + browserType);
     }
 
-    @Test
+    @Test (priority = 0, enabled = true)
     public void Verify_YogaLinks(){
         WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
         TopBar objTop = new TopBar(driver);
@@ -117,7 +117,7 @@ public class WhatWeOfferLinks {
         System.out.println("Yin Yoga: " + PageName16);
     }
 
-    @Test
+    @Test (priority = 1, enabled = true)
     public void Verify_MeditationLinks(){
         WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
         TopBar objTop = new TopBar(driver);
@@ -156,7 +156,161 @@ public class WhatWeOfferLinks {
         String PageName7=objWhatWeOffer.Verify_PageName();
         Assert.assertEquals(PageName7, "Zen (Zazen) Meditation");
         System.out.println("Zen (Zazen) Meditation: " + PageName7);
+    }
+
+    @Test (priority = 2, enabled = true)
+    public void Verify_CoachingLinks(){
+        WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
+        TopBar objTop = new TopBar(driver);
         objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_HealthCoaching();
+        String PageName1=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName1, "Health Coaching");
+        System.out.println("Health Coaching: " + PageName1);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_LifeCoaching();
+        String PageName2=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName2, "Life Coaching");
+        System.out.println("Life Coaching: " + PageName2);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_ProfessionalCoaching();
+        String PageName3=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName3, "Professional Coaching");
+        System.out.println("Professional Coaching: " + PageName3);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_TraumaCoaching();
+        String PageName4=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName4, "Trauma Coaching");
+        System.out.println("Trauma Coaching: " + PageName4);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_WorkLifeBalanceCoaching();
+        String PageName5=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName5, "Work-Life Balance Coaching");
+        System.out.println("Work-Life Balance Coaching: " + PageName5);
 
     }
+
+    @Test (priority = 3, enabled = true)
+    public void Verify_RestorativeFitnessLinks(){
+        WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
+        TopBar objTop = new TopBar(driver);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Calisthenics();
+        String PageName1=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName1, "Calisthenics");
+        System.out.println("Calisthenics: " + PageName1);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Pilates();
+        String PageName2=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName2, "Pilates");
+        System.out.println("Pilates: " + PageName2);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Stretching();
+        String PageName3=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName3, "Stretching");
+        System.out.println("Stretching: " + PageName3);
+    }
+
+    @Test (priority = 4, enabled = true)
+    public void Verify_NutritionLinks(){
+        WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
+        TopBar objTop = new TopBar(driver);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_AyurvedaNutrition();
+        String PageName1=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName1, "Ayurveda Nutrition");
+        System.out.println("Ayurveda Nutrition: " + PageName1);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_DetoxNutrition();
+        String PageName2=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName2, "Detox Nutrition");
+        System.out.println("Detox Nutrition: " + PageName2);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_MiscellaneousNutrition();
+        String PageName3=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName3, "Miscellaneous Nutrition");
+        System.out.println("Miscellaneous Nutrition: " + PageName3);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_PrenatalNutrition();
+        String PageName4=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName4, "Prenatal Nutrition");
+        System.out.println("Prenatal Nutrition: " + PageName4);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_SportsAndEnergyNutrition();
+        String PageName5=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName5, "Sports And Energy Nutrition");
+        System.out.println("Sports And Energy Nutrition: " + PageName5);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_WeightManagementNutrition();
+        String PageName6=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName6, "Weight Management Nutrition");
+        System.out.println("Weight Management Nutrition: " + PageName6);
+    }
+    @Test (priority = 5, enabled = true)
+    public void Verify_HealingArtsLinks(){
+        WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
+        TopBar objTop = new TopBar(driver);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_EnergyHealing();
+        String PageName1=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName1, "Energy Healing");
+        System.out.println("Energy Healing: " + PageName1);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_HypnosisHealing();
+        String PageName2=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName2, "Hypnosis Healing");
+        System.out.println("Hypnosis Healing: " + PageName2);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Reiki();
+        String PageName3=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName3, "Reiki");
+        System.out.println("Reiki: " + PageName3);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_ShamanicHealing();
+        String PageName4=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName4, "Shamanic Healing");
+        System.out.println("Shamanic Healing: " + PageName4);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_SoundHealing();
+        String PageName5=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName5, "Sound Healing");
+        System.out.println("Sound Healing: " + PageName5);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_ThetaHealing();
+        String PageName6=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName6, "Theta Healing");
+        System.out.println("Theta Healing: " + PageName6);
+    }
+
+    @Test (priority = 6, enabled = true)
+    public void Verify_AstrologyLinks(){
+        WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
+        TopBar objTop = new TopBar(driver);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Astrology();
+        String PageName1=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName1, "Astrology");
+        System.out.println("Astrology: " + PageName1);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Numerology();
+        String PageName2=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName2, "Numerology");
+        System.out.println("Numerology: " + PageName2);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_PsychicReadings();
+        String PageName3=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName3, "Psychic Readings");
+        System.out.println("Psychic Readings: " + PageName3);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_SpiritualCounseling();
+        String PageName4=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName4, "Spiritual Counseling");
+        System.out.println("Spiritual Counseling: " + PageName4);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Tarot();
+        String PageName5=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName5, "Tarot");
+        System.out.println("Tarot: " + PageName5);
+    }
+
 }

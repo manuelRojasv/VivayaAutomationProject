@@ -34,7 +34,7 @@ public class SearchGuide2 {
         System.out.println("Opening" + browserType);
     }
 
-    @Test
+    @Test (priority = 0, enabled = true)
     public void login_search_Guide() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
@@ -52,7 +52,7 @@ public class SearchGuide2 {
         objSeeker.perform_Logout();
     }
 
-    @Test
+    @Test (priority = 1, enabled = true)
     public void search_Guide() throws InterruptedException {
         GuidesPage objGuides = new GuidesPage(driver);
         Thread.sleep(3000);

@@ -31,7 +31,7 @@ public class BottomBarLinks {
         System.out.println("Opening" + browserType);
     }
 
-    @Test
+    @Test (priority = 0, enabled = true)
     public void Verify_BottomBarLinks(){
         BottomBar objBottom = new BottomBar(driver);
         BecomeGuidePage objBecomeGuide = new BecomeGuidePage(driver);
@@ -66,7 +66,7 @@ public class BottomBarLinks {
         System.out.println("Terms and conditions Page: " + PageName7);
     }
 
-    @Test
+    @Test (priority = 1, enabled = true)
     public void Verify_BottomBarLinks_Login() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
