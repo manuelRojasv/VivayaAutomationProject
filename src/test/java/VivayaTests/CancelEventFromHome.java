@@ -2,9 +2,11 @@ package VivayaTests;
 
 import Page_Obj.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
@@ -13,7 +15,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class BookingEventTest {
+public class CancelEventFromHome {
     WebDriver driver;
 
     @BeforeClass
@@ -29,7 +31,6 @@ public class BookingEventTest {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             objHome.click_Login_Link();
-            //objLogin.set_Guide_Credentials("vivaya.automation.two@gmail.com", "automation2");
             objLogin.set_Guide_Credentials ("manurex@manu.com", "perrodelmal");
 
 
@@ -45,7 +46,7 @@ public class BookingEventTest {
     }
 
     @Test(enabled = true, priority = 0)
-    public void book_Workshop_Event() throws InterruptedException {
+    public void book_and_Cancel_From_Home() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 60);
         DashboardPage objDash = new DashboardPage(driver);
         ClassPage classPage = new ClassPage(driver);
@@ -55,24 +56,19 @@ public class BookingEventTest {
         GuidesPage objGuides = new GuidesPage(driver);
         GuideProfilePage objGuideProf = new GuideProfilePage(driver);
         objDash.open_Class();
-        classPage.create_Class();
+        classPage.create_Class_Current_Date();
         Thread.sleep(3000);
         objHome.perform_Logout();
         objHome.click_Login_Link();
         objLogin.set_Seeker_Credentials("horcosio@gmail.com", "perrodelmal");
         Thread.sleep(3000);
-        objGuides.search_Guide("manu rove");
-        objGuides.select_Single_Guide ("manu rove");
-        objGuideProf.select_Event_from_Guide_Profile("TEST CLASS CREATION");
-        objEventDetails.select_book_Button_from_Event_Detail();
-        objEventDetails.cancel_Event();
-        objHome.perform_Logout();
-        objHome.click_Login_Link();
-        objLogin.set_Guide_Credentials ("mmmmrojirim@gmail.com", "perrodelmal");
+        objHome.go_To_Home();
+        objHome.book_First_Upcoming_Event();
+        objHome.go_To_Home();
         Thread.sleep(3000);
-        objDash.cancel_an_Event();
-
-        //String sucessTest = driver.findElement(By.xpath("//*[@id=\"w0-success-0\"]")).getText();
-        //Assert.assertEquals(sucessTest, "Event has been canceled.");*/
+        objHome.cancel_Booking_from_Upcoming_Event();
+        String sucess = driver.findElement(By.cssSelector("#w0-success-0")).getText();
+        Assert.assertEquals(sucess, "×\n" + "Event has been canceled.");
+        System.out.println(sucess + " From Home by the Seeker");
     }
 }
