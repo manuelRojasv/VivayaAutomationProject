@@ -11,7 +11,8 @@ public class HomePage {
     By login_Link = By.xpath("//ul[@class='menu user-menu']//a[.='Login']");
     By press_Logout = By.xpath("//*[@id=\"accountNav\"]/ul/li/ul/li[3]/form/button");
     By press_Right_Corner = By.cssSelector("#accountNav > ul > li");
-    By press_Home_Logo = By.cssSelector(".brand");
+    By press_Home_Logo = By.cssSelector("#header > a");
+    By confirm_Cancel_Event = By.cssSelector(".btn-success");
     By select_Guide = By.cssSelector("div.homepage-guides [href='/guides/1598'] > .name");
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -36,6 +37,23 @@ public class HomePage {
         driver.findElement(By.linkText(eventName)).click();
     }
 
+    public void book_First_Upcoming_Event() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,800)");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[contains(@class,'dinamyc')]")).click();
+
+
+    }
+
+    public void cancel_Booking_from_Upcoming_Event() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,800)");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[contains(@class,'dinamyc')]")).click();
+        driver.findElement(confirm_Cancel_Event).click();
+
+    }
 
 
 }
