@@ -71,4 +71,18 @@ public class CancelEventFromHome {
         Assert.assertEquals(sucess, "×\n" + "Event has been canceled.");
         System.out.println(sucess + " From Home by the Seeker");
     }
+    
+    @Test(enabled = true, priority = 1)
+    public void book_and_Cancel_From_Schedule() throws InterruptedException {
+        TopBar objTopbar = new TopBar(driver);
+        SchedulePage objSchedulePage = new SchedulePage(driver);
+        EventPageDetails objPageDetail = new EventPageDetails(driver);
+        objTopbar.Press_ScheduleLink();
+        objSchedulePage.book_First_Event_CurrentDay();
+        objPageDetail.select_View_FullSchedule();
+        Thread.sleep(2000);
+        objSchedulePage.cancel_Booked_Event_CurrentDay();
+
+        
+    }
 }
