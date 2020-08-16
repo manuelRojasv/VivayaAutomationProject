@@ -33,10 +33,6 @@ public class HomePage {
         driver.findElement(press_Home_Logo).click();
     }
 
-    public void select_Event_from_Home (String eventName){
-        driver.findElement(By.linkText(eventName)).click();
-    }
-
     public void book_First_Upcoming_Event() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,800)");
@@ -54,6 +50,7 @@ public class HomePage {
         driver.findElement(confirm_Cancel_Event).click();
 
     }
+
 
 
 }

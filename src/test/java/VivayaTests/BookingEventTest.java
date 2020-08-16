@@ -2,14 +2,19 @@ package VivayaTests;
 
 import Page_Obj.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
+import org.w3c.dom.html.HTMLImageElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +35,7 @@ public class BookingEventTest {
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             objHome.click_Login_Link();
             //objLogin.set_Guide_Credentials("vivaya.automation.two@gmail.com", "automation2");
-            objLogin.set_Guide_Credentials ("manurex@manu.com", "perrodelmal");
+            objLogin.set_Guide_Credentials ("mmmmrojirim@gmail.com", "perrodelmal");
 
 
         }
@@ -53,7 +58,7 @@ public class BookingEventTest {
         LoginPage objLogin = new LoginPage(driver);
         EventPageDetails objEventDetails = new EventPageDetails(driver);
         GuidesPage objGuides = new GuidesPage(driver);
-        GuideProfilePage objGuideProf = new GuideProfilePage(driver);
+        GuideProfilePage objGuideProfile = new GuideProfilePage(driver);
         objDash.open_Class();
         classPage.create_Class();
         Thread.sleep(3000);
@@ -63,7 +68,7 @@ public class BookingEventTest {
         Thread.sleep(3000);
         objGuides.search_Guide("manu rove");
         objGuides.select_Single_Guide ("manu rove");
-        objGuideProf.select_Event_from_Guide_Profile("TEST CLASS CREATION");
+        objGuideProfile.select_Event_from_Guide_Profile("TEST CLASS CREATION");
         objEventDetails.select_book_Button_from_Event_Detail();
         objEventDetails.cancel_Event();
         objHome.perform_Logout();

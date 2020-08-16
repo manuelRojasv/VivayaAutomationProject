@@ -31,7 +31,7 @@ public class TopBarLinks {
         System.out.println("Opening" + browserType);
     }
 
-    @Test
+    @Test (priority = 0, enabled = true)
     public void Verify_TopBarLinks(){
         TopBar objTop = new TopBar(driver);
         SchedulePage objSchedule= new SchedulePage(driver);
@@ -62,7 +62,7 @@ public class TopBarLinks {
 
     }
 
-    @Test
+    @Test (priority = 1, enabled = true)
     public void Verify_TopBarLinks_Login() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);

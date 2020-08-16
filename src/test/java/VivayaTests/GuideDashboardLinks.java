@@ -33,7 +33,7 @@ public class GuideDashboardLinks {
         System.out.println("Opening" + browserType);
     }
 
-    @Test
+    @Test (priority = 0, enabled = true)
     public void Verify_QuickLinks() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
@@ -85,7 +85,7 @@ public class GuideDashboardLinks {
 
     }
 
-    @Test
+    @Test (priority = 1, enabled = true)
     public void Verify_YourSchedule_links () throws InterruptedException {
         DashboardPage objDashboard = new DashboardPage(driver);
         Thread.sleep(3000);
