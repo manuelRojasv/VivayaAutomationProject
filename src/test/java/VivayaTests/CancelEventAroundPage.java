@@ -85,4 +85,17 @@ public class CancelEventFromHome {
 
         
     }
+    
+    @Test(enabled = true, priority = 2)
+    public void book_and_Cancel_From_Dashboard() throws InterruptedException {
+        TopBar objTopbar = new TopBar(driver);
+        SchedulePage objSchedulePage = new SchedulePage(driver);
+        DashboardPage objSeekerDashboard = new DashboardPage(driver);
+        objTopbar.Press_ScheduleLink();
+        objSchedulePage.book_First_Event_CurrentDay();
+        objSeekerDashboard.Press_DashboardLink();
+        Thread.sleep(2000);
+        objSeekerDashboard.cancel_an_Event();
+        
+    }
 }
