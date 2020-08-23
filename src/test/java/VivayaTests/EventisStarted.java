@@ -46,11 +46,14 @@ public class EventisStarted {
         driver.quit();
     }
 
-    @Test
+    @Test(priority = 0)
     public void user_Starts_Event_Correctly () throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 60);
         DashboardPage objDash = new DashboardPage(driver);
         ClassPage classPage = new ClassPage(driver);
+        HomePage objHome = new HomePage(driver);
+        LoginPage objLogin = new LoginPage(driver);
+
         objDash.open_Class();
         classPage.create_Class_Current_Date();
         Thread.sleep(3000);
@@ -65,6 +68,41 @@ public class EventisStarted {
         }
         System.out.println(baseURL);
         Assert.assertEquals(baseURL, "https://zoom.us" );
+
+        ArrayList<String> switchTab0 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(switchTab0.get(0));
+        Thread.sleep(3000);
+        objHome.perform_Logout();
+        }
+    @Test(priority = 1)
+    public void seeker_Join_Event_Started() throws InterruptedException {
+        DashboardPage objDash = new DashboardPage(driver);
+        HomePage objHome = new HomePage(driver);
+        LoginPage objLogin = new LoginPage(driver);
+        TopBar objTopbar = new TopBar(driver);
+        SchedulePage objSchedulePage = new SchedulePage(driver);
+        DashboardPage objSeekerDashboard = new DashboardPage(driver);
+
+        objHome.click_Login_Link();
+        objLogin.set_Seeker_Credentials("horcosio@gmail.com", "perrodelmal");
+        Thread.sleep(3000);
+        objTopbar.Press_ScheduleLink();
+        objSchedulePage.book_First_Event_CurrentDay();
+        objSeekerDashboard.Press_DashboardLink();
+        Thread.sleep(2000);
+        objDash.seeker_Join_Event_Button();
+
+        ArrayList<String> switchTab = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(switchTab.get(1));
+
+        String url = driver.getCurrentUrl(); //Get the current URL, and compare the base URL is the same after open an Event
+        String baseURL = "";
+        if(url.length()>15){
+            baseURL = url.substring(0, 15);
+        }
+        System.out.println(baseURL);
+        Assert.assertEquals(baseURL, "https://zoom.us" );
+
 
     }
 }
