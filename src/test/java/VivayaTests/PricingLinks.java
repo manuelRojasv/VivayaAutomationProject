@@ -52,43 +52,43 @@ public class PricingLinks {
         objPricing.Press_SubscribeMonthly();
         String PageName2= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName2, "Sign in");
-        System.out.println("Try now page: " + PageName2);
+        System.out.println("Subscribe Monthly: " + PageName2);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_SubscribeAnnually();
         String PageName3= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName3, "Sign in");
-        System.out.println("Try now page: " + PageName3);
+        System.out.println("Subscribe Annually: " + PageName3);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_BuyNow1();
         String PageName4= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName4, "Sign in");
-        System.out.println("Try now page: " + PageName4);
+        System.out.println("Buy Now 1 Class: " + PageName4);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_BuyNow5();
         String PageName6= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName6, "Sign in");
-        System.out.println("Try now page: " + PageName6);
+        System.out.println("Buy Now 5 pack: " + PageName6);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_BuyNow10();
         String PageName7=objPricing.Verify_PagesName();
         Assert.assertEquals(PageName7, "Sign in");
-        System.out.println("Try now page: " + PageName7);
+        System.out.println("Buy Now 10 pack: " + PageName7);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_ViewAllEvents();
         String PageName8= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName8, "Find your next VIVAYA Workshop");
-        System.out.println("Try now page: " + PageName8);
+        System.out.println("View All Events page: " + PageName8);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_FindGuide();
         String PageName9= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName9, "Explore our VIVAYA Guides");
-        System.out.println("Try now page: " + PageName9);
+        System.out.println("Find Guide Page: " + PageName9);
     }
 
     @Test (priority = 1, enabled = true)
@@ -115,10 +115,10 @@ public class PricingLinks {
         System.out.println("Subscribe Monthly: " + PageName2);
         objCart.Press_Remove();
         objCart.Press_Yes();
-        /*String Message1=objCart.Verify_RemoveMessage();
+        String Message1=objCart.Verify_RemoveMessage();
         Assert.assertEquals(Message1, "×\n" +
                 "Item has been removed from cart.");
-        System.out.println("Remove: " + Message1);*/
+        System.out.println("Remove: " + Message1);
         objTop.Press_PricingLink();
         objPricing.Press_SubscribeAnnually();
         String PageName3= objPricing.Verify_PagesName();
@@ -126,10 +126,10 @@ public class PricingLinks {
         System.out.println("Subscribe Annually: " + PageName3);
         objCart.Press_Remove();
         objCart.Press_Yes();
-        /*String Message2=objCart.Verify_RemoveMessage();
+        String Message2=objCart.Verify_RemoveMessage();
         Assert.assertEquals(Message2, "×\n" +
                 "Item has been removed from cart.");
-        System.out.println("Remove: " + Message2);*/
+        System.out.println("Remove: " + Message2);
         objTop.Press_PricingLink();
         Thread.sleep(3000);
         objPricing.Press_BuyNow1();
