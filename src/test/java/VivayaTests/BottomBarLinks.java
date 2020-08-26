@@ -2,6 +2,7 @@ package VivayaTests;
 
 import Page_Obj.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -9,15 +10,22 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import java.util.concurrent.TimeUnit;
+
 
 public class BottomBarLinks {
     WebDriver driver;
 
     @BeforeClass
+    public void setUpHeadlessMode() {
+        System.setProperty("java.awt.headless", "true");
+    }
+
+
+    @BeforeClass
     @Parameters({"URL", "BrowserType"})
     public void initial_Setup(String url, String browserType) {
+
 
         if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -74,7 +82,7 @@ public class BottomBarLinks {
         BottomBar objBottom=new BottomBar(driver);
         Thread.sleep(3000);
         objHome.click_Login_Link();
-        objLogin.set_Seeker_Credentials("alejandra@seeker.com", "user7890");
+        objLogin.set_Seeker_Credentials("valeria1208@outlook.com", "user7890");
         Thread.sleep(3000);
         objBottom.Press_AboutLink();
         String PageName1=objBottom.Verify_AboutPage();

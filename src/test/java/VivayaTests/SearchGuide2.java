@@ -7,6 +7,7 @@ import Page_Obj.SeekerDashboardPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -21,6 +22,12 @@ public class SearchGuide2 {
     @BeforeClass
     @Parameters({"URL", "BrowserType"})
     public void initial_Setup(String url, String browserType) {
+        /*WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless"); //This line is for Headless mode in Chrome
+        options.addArguments("window-size=1366x768"); //This line is for Headless mode in Chrome
+        driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
+        driver.get("https://dev.vivayalive.com");*/
 
         if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -34,7 +41,7 @@ public class SearchGuide2 {
         System.out.println("Opening" + browserType);
     }
 
-    @Test (priority = 0, enabled = true)
+    @Test (priority = 0, enabled = false)
     public void login_search_Guide() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
@@ -42,12 +49,12 @@ public class SearchGuide2 {
         GuidesPage objGuides = new GuidesPage(driver);
         Thread.sleep(3000);
         objHome.click_Login_Link();
-        objLogin.set_Seeker_Credentials("alejandra@seeker.com", "user7890");
+        objLogin.set_Seeker_Credentials("valeria1208@outlook.com", "user7890");
         Thread.sleep(3000);
-        objGuides.search_Guide("valeria fernandez");
-        objGuides.select_Single_Guide("valeria fernandez");
+        objGuides.search_Guide("valeria guide");
+        objGuides.select_Single_Guide("valeria guide");
         String GuideName=objGuides.verify_Guide_name();
-        Assert.assertEquals(GuideName, "valeria fernandez");
+        Assert.assertEquals(GuideName, "valeria guide");
         System.out.println("Guide: " + GuideName);
         objSeeker.perform_Logout();
     }
@@ -56,10 +63,10 @@ public class SearchGuide2 {
     public void search_Guide() throws InterruptedException {
         GuidesPage objGuides = new GuidesPage(driver);
         Thread.sleep(3000);
-        objGuides.search_Guide("valeria fernandez");
-        objGuides.select_Single_Guide("valeria fernandez");
+        objGuides.search_Guide("valeria guide");
+        objGuides.select_Single_Guide("valeria guide");
         String GuideName=objGuides.verify_Guide_name();
-        Assert.assertEquals(GuideName, "valeria fernandez");
+        Assert.assertEquals(GuideName, "valeria guide");
         System.out.println("Guide: " + GuideName);
 
     }

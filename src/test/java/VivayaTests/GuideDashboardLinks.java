@@ -6,6 +6,7 @@ import Page_Obj.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -20,6 +21,12 @@ public class GuideDashboardLinks {
     @BeforeClass
     @Parameters({"URL", "BrowserType"})
     public void initial_Setup(String url, String browserType) {
+        /*WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless"); //This line is for Headless mode in Chrome
+        options.addArguments("window-size=1366x768"); //This line is for Headless mode in Chrome
+        driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
+        driver.get("https://dev.vivayalive.com");*/
 
         if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -40,7 +47,7 @@ public class GuideDashboardLinks {
         DashboardPage objDashboard = new DashboardPage(driver);
         Thread.sleep(3000);
         objHome.click_Login_Link();
-        objLogin.set_Guide_Credentials("valeria@guide.com", "user7890");
+        objLogin.set_Guide_Credentials("valeria.fernandez@believesol.com", "user7890");
         Thread.sleep(3000);
         objDashboard.Press_FullClassHistory();
         String PageName1=objDashboard.Verify_PageName();
@@ -49,7 +56,7 @@ public class GuideDashboardLinks {
         objDashboard.Press_DashboardLink();
         objDashboard.Press_MyPublicProfile();
         String PageName2= objDashboard.Verify_PageName();
-        Assert.assertEquals(PageName2, "valeria fernandez");
+        Assert.assertEquals(PageName2, "valeria guide");
         System.out.println("View my public profile: " + PageName2);
         objDashboard.Press_DashboardLink();
         objDashboard.Press_ContactVivaya();

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import java.awt.*;
+
 public class HomePage {
     WebDriver driver;
     By login_Link = By.xpath("//ul[@class='menu user-menu']//a[.='Login']");
@@ -31,6 +33,10 @@ public class HomePage {
     public HomePage(WebDriver driver) {
         this.driver = driver;
     }
+    public void setProperty (){System.setProperty("java.awt.headless", "true");
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        // Standard beep is available.
+        tk.beep();}
 
 
     public void click_Login_Link() {

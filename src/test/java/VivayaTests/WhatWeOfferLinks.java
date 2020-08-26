@@ -5,6 +5,7 @@ import Page_Obj.WhatWeOfferPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -19,6 +20,12 @@ public class WhatWeOfferLinks {
     @BeforeClass
     @Parameters({"URL", "BrowserType"})
     public void initial_Setup(String url, String browserType) {
+        /*WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless"); //This line is for Headless mode in Chrome
+        options.addArguments("window-size=1366x768"); //This line is for Headless mode in Chrome
+        driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
+        driver.get("https://dev.vivayalive.com");*/
 
         if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();

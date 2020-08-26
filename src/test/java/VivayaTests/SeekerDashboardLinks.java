@@ -6,6 +6,7 @@ import Page_Obj.SeekerDashboardPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -20,6 +21,12 @@ public class SeekerDashboardLinks {
     @BeforeClass
     @Parameters({"URL", "BrowserType"})
     public void initial_Setup(String url, String browserType) {
+        /*WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("headless"); //This line is for Headless mode in Chrome
+        options.addArguments("window-size=1366x768"); //This line is for Headless mode in Chrome
+        driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
+        driver.get("https://dev.vivayalive.com");*/
 
         if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -40,7 +47,7 @@ public class SeekerDashboardLinks {
         SeekerDashboardPage objSeeker = new SeekerDashboardPage(driver);
         Thread.sleep(3000);
         objHome.click_Login_Link();
-        objLogin.set_Seeker_Credentials("alejandra@seeker.com", "user7890");
+        objLogin.set_Seeker_Credentials("valeria1208@outlook.com", "user7890");
         Thread.sleep(3000);
         objSeeker.Press_MyPassword();
         String PageName1=objSeeker.Verify_PageName();

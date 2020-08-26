@@ -11,10 +11,10 @@ public class GuidesPage {
     By press_Guides_Tab = By.cssSelector("a[href='/guides']");
     By search_Input = By.id("guidesearch-q");
     By search_Button = By.cssSelector("button.btn.btn-primary.vertical-center");
-    By Guides_Link= By.xpath("//a[contains(text(),'Guides')]");
-    By Search_Field= By.id("guidesearch-q");
-    By Search_button= By.xpath("//form[@id='guides-search-form']/div/div[3]/button");
-    By Guide_name= By.linkText("valeria fernandez");
+    //By Guides_Link= By.xpath("//a[contains(text(),'Guides')]");
+    //By Search_Field= By.id("guidesearch-q");
+    //By Search_button= By.xpath("//form[@id='guides-search-form']/div/div[3]/button");
+    //By Guide_name= By.linkText("valeria fernandez");
     By Guide_name_info=By.xpath("//h1");
     By Page_name=By.xpath("//h1");
 
@@ -44,12 +44,8 @@ public class GuidesPage {
     public String verify_Guide_name(){
         return driver.findElement(Guide_name_info).getText();
     }
-
     public String Verify_PageName(){
         return driver.findElement(Page_name).getText();
     }
-
-
-
 
 }
