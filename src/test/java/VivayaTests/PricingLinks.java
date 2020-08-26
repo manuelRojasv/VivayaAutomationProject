@@ -38,7 +38,7 @@ public class PricingLinks {
         System.out.println("Opening" + browserType);
     }
 
-    @Test (priority = 0, enabled = false)
+    @Test (priority = 0, enabled = true)
     public void Verify_Pricing_Links() throws InterruptedException {
         TopBar objTop = new TopBar(driver);
         PricingPage objPricing = new PricingPage(driver);
@@ -48,11 +48,13 @@ public class PricingLinks {
         Assert.assertEquals(PageName1, "Try 14 days of FREE unlimited yoga classes");
         System.out.println("Try now page: " + PageName1);
         objTop.Press_PricingLink();
+        Thread.sleep(3000);
         objPricing.Press_SubscribeMonthly();
         String PageName2= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName2, "Sign in");
         System.out.println("Try now page: " + PageName2);
         objTop.Press_PricingLink();
+        Thread.sleep(3000);
         objPricing.Press_SubscribeAnnually();
         String PageName3= objPricing.Verify_PagesName();
         Assert.assertEquals(PageName3, "Sign in");
@@ -99,7 +101,7 @@ public class PricingLinks {
         CartPage objCart = new CartPage(driver);
         Thread.sleep(3000);
         objHome.click_Login_Link();
-        objLogin.set_Seeker_Credentials("vafs.12894@gmail.com", "user7890");
+        objLogin.set_Seeker_Credentials("valeria1208@outlook.com", "user7890");
         Thread.sleep(3000);
         objTop.Press_PricingLink();
         /*objPricing.Press_TryNow();
