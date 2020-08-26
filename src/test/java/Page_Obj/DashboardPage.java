@@ -9,6 +9,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class DashboardPage {
 
     WebDriver driver;
+    By seeker_press_Join_Button = By.cssSelector(".join-event");
+    By click_Start_Event = By.cssSelector("#fbStart");
     By add_new_Event = By.cssSelector("a.btn.btn-default.show-modal-btn");
     By add_Workshop = By.cssSelector("div.add-event-buttons > a.btn.btn-primary");
     By add_Session = By.xpath("//a[.='Add 1-1 Session']");
@@ -36,6 +38,18 @@ public class DashboardPage {
     public DashboardPage(WebDriver driver) {
 
         this.driver = driver;
+    }
+    
+    public void seeker_Join_Event_Button() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,300)");
+        Thread.sleep(2000);
+        driver.findElement(seeker_press_Join_Button).click();
+    }
+    
+    
+    public void press_Start_Event(){
+        driver.findElement(click_Start_Event).click();
     }
 
     public void open_Workshop() throws InterruptedException {

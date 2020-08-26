@@ -13,7 +13,7 @@ public class HomePage {
     By login_Link = By.xpath("//ul[@class='menu user-menu']//a[.='Login']");
     By press_Logout = By.xpath("//*[@id=\"accountNav\"]/ul/li/ul/li[3]/form/button");
     By press_Right_Corner = By.cssSelector("#accountNav > ul > li");
-    By press_Home_Logo = By.cssSelector(".brand");
+    By press_Home_Logo =  By.cssSelector("#header > a");
     By select_Guide = By.cssSelector("div.homepage-guides [href='/guides/1598'] > .name");
     //Home Page Links
     By Free_trial_link=By.linkText("START YOUR 14 DAY FREE TRIAL NOW");
@@ -52,9 +52,30 @@ public class HomePage {
     public void Press_Home(){
         driver.findElement(press_Home_Logo).click();
     }
+     public void go_To_Home(){
+        driver.findElement(press_Home_Logo).click();
+    }
 
     public void select_Event_from_Home (String eventName){
         driver.findElement(By.linkText(eventName)).click();
+    }
+    
+     public void book_First_Upcoming_Event() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,800)");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[contains(@class,'dinamyc')]")).click();
+
+
+    }
+
+    public void cancel_Booking_from_Upcoming_Event() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,800)");
+        Thread.sleep(2000);
+        driver.findElement(By.xpath("//div[contains(@class,'dinamyc')]")).click();
+        driver.findElement(confirm_Cancel_Event).click();
+
     }
 
     public void Press_FreeTrialLink(){driver.findElement(Free_trial_link).click();}
