@@ -1,12 +1,12 @@
 package Page_Obj;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class ClassPage {
     WebDriver driver;
@@ -16,7 +16,7 @@ public class ClassPage {
     By clock_Icon = By.cssSelector(".glyphicon-time");
     By date_Picker = By.xpath("//input[@id='eventform-startdate']");
     By add_Submit = By.xpath("//button[@class='btn btn-primary']");
-
+    By select_Next_Month_Calendar = By.cssSelector("div.datepicker-days .next");
 
     public ClassPage(WebDriver driver) {
         this.driver = driver;
@@ -29,15 +29,17 @@ public class ClassPage {
         WebElement iFrame = driver.findElement(By.tagName("iframe"));
         driver.switchTo().frame(iFrame);
         driver.findElement(By.tagName("body")).click();
-        driver.findElement(By.tagName("body")).sendKeys("This is a Description for a simple Class");
+        driver.findElement(By.tagName("body")).sendKeys("This is a Description");
         driver.switchTo().defaultContent();
 
         driver.findElement(By.cssSelector("i.glyphicon.glyphicon-calendar")).click();
+        driver.findElement(select_Next_Month_Calendar).click();
         driver.findElement(By.xpath("//tr[5]/td[5]")).click();
+
         driver.findElement(add_Submit).click();
     }
-    
-     public void create_Class_Current_Date() throws InterruptedException {
+
+    public void create_Class_Current_Date() throws InterruptedException {
 
         driver.findElement(event_Name).sendKeys("Event to Start now");
         Thread.sleep(3000);
