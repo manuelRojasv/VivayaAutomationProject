@@ -2,11 +2,8 @@ package VivayaTests;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import Page_Obj.HomePage;
 import Page_Obj.WorkshopPage;
@@ -33,7 +30,7 @@ public class EventsTests {
             driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
             objHome.click_Login_Link();
-            objLogin.set_Guide_Credentials("mmmmrojirim@gmail.com", "perrodelmal");
+            objLogin.set_Guide_Credentials("manurex@manu.com", "perrodelmal");
 
         }
 
@@ -45,9 +42,10 @@ public class EventsTests {
     public void closeSession() {
         driver.close();
         driver.quit();
+
     }
 
-    @Test(enabled = true, priority = 0)
+    @Test(enabled = true, priority = 2)
     public void create_Workshop_Event() throws InterruptedException {
 
         DashboardPage objDash = new DashboardPage(driver);
@@ -56,9 +54,6 @@ public class EventsTests {
         objDash.open_Workshop();
         objWork.create_Workshop();
         Thread.sleep(3000);
-        //String sucess = driver.findElement(By.cssSelector("div.dashboard-events span")).getText();
-        //Assert.assertEquals(sucess, "WORKSHOP");
-        Thread.sleep(2000);
         objDash.cancel_an_Event();
     }
 
@@ -74,16 +69,15 @@ public class EventsTests {
 
     }
 
-    @Test(enabled = true, priority = 2)
+    @Test(enabled = true, priority = 0)
     public void create_Class() throws InterruptedException {
         DashboardPage objDash = new DashboardPage(driver);
         ClassPage objClass = new ClassPage(driver);
         Thread.sleep(3000);
         objDash.open_Class();
         objClass.create_Class();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
         objDash.cancel_an_Event();
     }
-
 
 }
