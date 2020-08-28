@@ -2,10 +2,8 @@ package VivayaTests;
 
 import Page_Obj.LoginPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.*;
 import Page_Obj.HomePage;
 
@@ -35,7 +33,7 @@ public class BasicTests {
         System.out.println("Opening" + browserType);
     }
 
-    @AfterClass
+    @AfterTest
     public void closeSession() {
         driver.close();
         driver.quit();
@@ -46,10 +44,8 @@ public class BasicTests {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
         objHome.click_Login_Link();
-        objLogin.set_Seeker_Credentials("vivaya.automation.one@gmail.com", "automation1");
+        objLogin.set_Seeker_Credentials("manurex@manu.com", "perrodelmal");
         Thread.sleep(3000);
-        //String sucess = driver.findElement(By.cssSelector("div.desktop > h3")).getText();
-        //Assert.assertEquals(sucess, "YOUR SUCCESS");
         objHome.perform_Logout();
 
 
@@ -60,10 +56,8 @@ public class BasicTests {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
         objHome.click_Login_Link();
-        objLogin.set_Seeker_Credentials("tester3@tester3.com", "perrodelmal");
+        objLogin.set_Seeker_Credentials("horcosio@gmail.com", "perrodelmal");
         Thread.sleep(3000);
-        //String sucess = driver.findElement(By.cssSelector("div.desktop > h3")).getText();
-        //Assert.assertEquals(sucess, "YOUR SUCCESS");
         objHome.perform_Logout();
     }
 
