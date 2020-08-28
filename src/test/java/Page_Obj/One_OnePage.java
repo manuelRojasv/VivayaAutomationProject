@@ -9,6 +9,7 @@ public class One_OnePage {
     By event_Name = By.id("eventform-name");
     By date_Picker = By.xpath("//input[@id='eventform-startdate']");
     By add_Submit = By.xpath("//button[@class='btn btn-primary']");
+    By select_Next_Month_Calendar = By.cssSelector("div.datepicker-days .next");
 
     public One_OnePage(WebDriver driver){
         this.driver = driver;
@@ -24,9 +25,10 @@ public class One_OnePage {
         driver.findElement(By.tagName("body")).sendKeys("This is a Description for One on One Event");
         driver.switchTo().defaultContent();
 
-        driver.findElement(By.cssSelector("span.input-group-addon")).click();
+        driver.findElement(By.cssSelector("i.glyphicon.glyphicon-calendar")).click();
+        driver.findElement(select_Next_Month_Calendar).click();
         driver.findElement(By.xpath("//tr[5]/td[5]")).click();
-        driver.findElement(By.name("EventForm[session_offering_id][]")).click();
+
         driver.findElement(By.xpath("(//input[@name='EventForm[session_offering_id][]'])[2]")).click();
         driver.findElement(By.xpath("(//input[@name='EventForm[session_offering_id][]'])[3]")).click();
         driver.findElement(By.xpath("(//input[@name='EventForm[session_offering_id][]'])[4]")).click();
