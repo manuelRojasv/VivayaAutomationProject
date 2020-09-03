@@ -1,14 +1,17 @@
 package Page_Obj;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import java.util.List;
 
 public class DashboardPage {
 
     WebDriver driver;
+     By confirm_Cancel_Event = By.cssSelector(".btn-success");
     By seeker_press_Join_Button = By.cssSelector(".join-event");
     By click_Start_Event = By.cssSelector("#fbStart");
     By add_new_Event = By.cssSelector("a.btn.btn-default.show-modal-btn");
@@ -38,6 +41,14 @@ public class DashboardPage {
     public DashboardPage(WebDriver driver) {
 
         this.driver = driver;
+    }
+    
+    public void logout_From_Dashboard() throws Exception {
+
+        driver.get("https://dev.vivayalive.com/schedule");
+        driver.findElement(By.cssSelector("div.wrap")).click();
+        driver.findElement(By.linkText("Hi, manu rex")).click();
+        driver.findElement(By.cssSelector("button.btn.logout")).click();
     }
     
     public void seeker_Join_Event_Button() throws InterruptedException {
@@ -77,6 +88,25 @@ public class DashboardPage {
         element1.click();
         Thread.sleep(2000);
         driver.findElement(yes_Delete_Event).click();
+    }
+    
+     public void seeker_Cancel_Event_Dashboard() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0,400)");
+        Thread.sleep(2000);
+
+        List<WebElement> list = driver.findElements(By.tagName("div"));
+        System.out.println("Number of links: "+list.size());
+        for(int i = 0; i < list.size(); i++){
+            if(list.get(i).equals("Cancel Event")){
+                driver.findElement(By.linkText("Cancel Event")).click();
+                driver.findElement(confirm_Cancel_Event).click();
+            }
+            //System.out.println(list.get(i).getText());
+        }
+
+            //driver.findElement(confirm_Cancel_Event).click();
+
     }
 
     public void Press_FullClassHistory(){
