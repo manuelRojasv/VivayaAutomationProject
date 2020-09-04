@@ -65,4 +65,27 @@ public class ClassPage {
 
 
     }
+
+    public void create_Event_ForTomorrow() throws InterruptedException {
+        driver.findElement(event_Name).sendKeys("Event for Tomorrow");
+        Thread.sleep(3000);
+
+        WebElement iFrame = driver.findElement(By.tagName("iframe"));
+        driver.switchTo().frame(iFrame);
+        driver.findElement(By.tagName("body")).click();
+        driver.findElement(By.tagName("body")).sendKeys("This is a Description for the Event that starts tomorrow");
+        driver.switchTo().defaultContent();
+
+        driver.findElement(clock_Icon).click();
+        for (int i = 0; i < 8; i++){
+            driver.findElement(add_Minutes_Arrow).click();
+        }
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("MM-dd-yyyy");
+        LocalDateTime now = LocalDateTime.now().plusDays(1);
+
+        driver.findElement(start_Date_Field).sendKeys(dtf.format(now));
+        driver.findElement(By.cssSelector("#eventform-startdate")).sendKeys(Keys.RETURN);
+        driver.findElement(add_Submit).click();
+    }
 }
