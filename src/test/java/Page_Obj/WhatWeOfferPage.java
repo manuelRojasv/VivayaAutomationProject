@@ -61,6 +61,10 @@ public class WhatWeOfferPage {
     By Psychic_link=By.linkText("Psychic Readings");
     By Spiritual_link=By.linkText("Spiritual Counseling");
     By Tarot_link=By.linkText("Tarot");
+    By Dance_link=By.linkText("Dance");
+    By QiGong_link=By.linkText("Qi Gong");
+    By SacredMovement_link=By.linkText("Sacred Movement");
+    By Zumba_link=By.linkText("Zumba");
 
     public WhatWeOfferPage(WebDriver driver){this.driver = driver;}
 
@@ -122,5 +126,10 @@ public class WhatWeOfferPage {
     public void Press_PsychicReadings(){driver.findElement(Psychic_link).click();}
     public void Press_SpiritualCounseling(){driver.findElement(Spiritual_link).click();}
     public void Press_Tarot(){driver.findElement(Tarot_link).click();}
+
+    public void Press_Dance(){driver.findElement(Dance_link).click();}
+    public void Press_QiGong(){driver.findElement(QiGong_link).click();}
+    public void Press_SacredMovement(){driver.findElement(SacredMovement_link).click();}
+    public void Press_Zumba(){driver.findElement(Zumba_link).click();}
 
 }

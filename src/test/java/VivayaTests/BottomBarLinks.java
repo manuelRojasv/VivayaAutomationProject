@@ -2,7 +2,6 @@ package VivayaTests;
 
 import Page_Obj.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -40,9 +39,10 @@ public class BottomBarLinks {
     }
 
     @Test (priority = 0, enabled = true)
-    public void Verify_BottomBarLinks(){
+    public void Verify_BottomBarLinks() throws InterruptedException {
         BottomBar objBottom = new BottomBar(driver);
         BecomeGuidePage objBecomeGuide = new BecomeGuidePage(driver);
+        Thread.sleep(3000);
         objBottom.Press_AboutLink();
         String PageName1=objBottom.Verify_AboutPage();
         Assert.assertEquals(PageName1, "Streaming good vibes");
@@ -74,7 +74,7 @@ public class BottomBarLinks {
         System.out.println("Terms and conditions Page: " + PageName7);
     }
 
-    @Test (priority = 1, enabled = true)
+    @Test (priority = 1, enabled = false)
     public void Verify_BottomBarLinks_Login() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);

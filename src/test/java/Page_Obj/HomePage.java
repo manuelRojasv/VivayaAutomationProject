@@ -24,8 +24,8 @@ public class HomePage {
     By Coaching_link=By.cssSelector(".coaching");
     By Astrology_link=By.cssSelector(".astrology-and-spiritual-counseling");
     By View_full_schedule_link=By.xpath("//a[contains(text(),'View full Schedule')]");
-    By View_all_guides_link=By.xpath("//div[5]/div/a");
-    By Become_guide_link=By.xpath("//a[contains(text(),'Become a guide »')]");
+    By View_all_guides_link=By.cssSelector(".container > .btn:nth-child(3)");
+    By Become_guide_link=By.cssSelector(".btn-simple");
     By Page_name=By.xpath("//h1");
     By Free_trial_page_name=By.cssSelector(".col-lg-offset-2");
     By Book_your_next_class_link=By.linkText("BOOK YOUR NEXT CLASS");
@@ -74,7 +74,7 @@ public class HomePage {
         js.executeScript("window.scrollBy(0,800)");
         Thread.sleep(2000);
         driver.findElement(By.xpath("//div[contains(@class,'dinamyc')]")).click();
-        driver.findElement(confirm_Cancel_Event).click();
+       // driver.findElement(confirm_Cancel_Event).click();
 
     }
 

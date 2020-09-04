@@ -97,7 +97,7 @@ public class HomeLinks {
 
     }
 
-    @Test (priority = 1, enabled = true)
+    @Test (priority = 1, enabled = false)
     public void Verify_HomeLinks_Login() throws InterruptedException {
         HomePage objHome=new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);

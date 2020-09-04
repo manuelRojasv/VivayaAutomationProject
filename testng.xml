@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" parallel="classes" thread-count="3">
     <parameter name="URL" value="https://dev.vivayalive.com"/>
     <test name="Test on Chrome" >
         <parameter name="BrowserType" value="Chrome"/>
@@ -11,9 +11,13 @@
                     <include name="verify_Valid_Seeker_Login"/>
                 </methods>
             </class-->
-            <class name="VivayaTests.PricingLinks">
+            <class name="VivayaTests.WriteBlogTest"></class>
+            <class name="VivayaTests.HomeLinks"></class>
+            <class name="VivayaTests.TopBarLinks"></class>
 
-            </class>
+
+
+
         </classes>
     </test>
 </suite>

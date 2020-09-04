@@ -7,10 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -253,6 +250,9 @@ public class WhatWeOfferLinks {
         String PageName6=objWhatWeOffer.Verify_PageName();
         Assert.assertEquals(PageName6, "Weight Management Nutrition");
         System.out.println("Weight Management Nutrition: " + PageName6);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Dance();
+
     }
     @Test (priority = 5, enabled = true)
     public void Verify_HealingArtsLinks(){
@@ -321,6 +321,32 @@ public class WhatWeOfferLinks {
         System.out.println("Tarot: " + PageName5);
     }
 
+    @Test
+    public void Verify_DanceMovementLinks()
+    {
+        WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
+        TopBar objTop = new TopBar(driver);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Dance();
+        String PageName7=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName7, "Dance");
+        System.out.println("Dance: " + PageName7);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_QiGong();
+        String PageName8=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName8, "Qi Gong");
+        System.out.println("Qi Gong: " + PageName8);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_SacredMovement();
+        String PageName9=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName9, "Sacred Movement");
+        System.out.println("Sacred Movement: " + PageName9);
+        objTop.Press_WhatWeOfferLink();
+        objWhatWeOffer.Press_Zumba();
+        String PageName10=objWhatWeOffer.Verify_PageName();
+        Assert.assertEquals(PageName10, "Zumba");
+        System.out.println("Zumba: " + PageName10);
+    }
     @AfterClass
     public void close(){
         driver.close();

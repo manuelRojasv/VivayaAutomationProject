@@ -41,10 +41,10 @@ public class DashboardPage {
     }
     
     public void seeker_Join_Event_Button() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
+        /*JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,300)");
         Thread.sleep(2000);
-        driver.findElement(seeker_press_Join_Button).click();
+        driver.findElement(seeker_press_Join_Button).click();*/
     }
     
     

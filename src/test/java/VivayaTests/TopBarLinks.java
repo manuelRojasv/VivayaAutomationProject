@@ -38,7 +38,7 @@ public class TopBarLinks {
         System.out.println("Opening" + browserType);
     }
 
-    @Test (priority = 0, enabled = false)
+    @Test (priority = 0, enabled = true)
     public void Verify_TopBarLinks(){
         TopBar objTop = new TopBar(driver);
         SchedulePage objSchedule= new SchedulePage(driver);

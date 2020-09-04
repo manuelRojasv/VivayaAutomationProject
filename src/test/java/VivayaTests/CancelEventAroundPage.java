@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class CancelEventFromHome {
+/*public class CancelEventFromHome {
     WebDriver driver;
 
     @BeforeClass
@@ -79,7 +79,7 @@ public class CancelEventFromHome {
         EventPageDetails objPageDetail = new EventPageDetails(driver);
         objTopbar.Press_ScheduleLink();
         objSchedulePage.book_First_Event_CurrentDay();
-        objPageDetail.select_View_FullSchedule();
+       // objPageDetail.select_View_FullSchedule();
         Thread.sleep(2000);
         objSchedulePage.cancel_Booked_Event_CurrentDay();
 
@@ -98,4 +98,4 @@ public class CancelEventFromHome {
         objSeekerDashboard.cancel_an_Event();
         
     }
-}
+}*/

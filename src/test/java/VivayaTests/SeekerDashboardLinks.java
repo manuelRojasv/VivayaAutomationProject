@@ -64,12 +64,12 @@ public class SeekerDashboardLinks {
         Assert.assertEquals(PageName3, "Account Information");
         System.out.println("My account: " + PageName3);
         objSeeker.Press_DashboardLink();
-        objSeeker.Press_MembershipCancellation();
+        /*objSeeker.Press_MembershipCancellation();
         Thread.sleep(3000);
         String PageName4=objSeeker.Verify_MembershipCancellation();
         Assert.assertEquals(PageName4, "Are you sure that you want to cancel your Monthly Unlimited Membership ?");
         System.out.println("Membership cancellation: " + PageName4);
-        objSeeker.Close_MembershipCancellation();
+        objSeeker.Close_MembershipCancellation();*/
         objSeeker.Press_ShoppingCart();
         String PageName5=objSeeker.Verify_PageName();
         Assert.assertEquals(PageName5, "Cart");
