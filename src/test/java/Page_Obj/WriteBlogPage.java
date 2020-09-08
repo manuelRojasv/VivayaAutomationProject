@@ -13,12 +13,16 @@ public class WriteBlogPage {
     By Submit_Button=By.cssSelector(".btn:nth-child(1)");
     By Frame=By.tagName("iframe");
     By Confirmation_Message=By.id("w0-success-0");
+    By Upload_button=By.id("blogpost-uploadedimage");
 
 
 
     public WriteBlogPage(WebDriver driver){this.driver = driver;}
     public void WriteTittle(String Tittle) { driver.findElement(Tittle_Textbox).sendKeys(Tittle); }
     public void PressSubmit(){driver.findElement(Submit_Button).click();}
+    public String Verify_ConfirmationMessage(){
+        return driver.findElement(Confirmation_Message).getText();
+    }
 
     public void ChooseOfferings()
     {
@@ -34,9 +38,11 @@ public class WriteBlogPage {
         driver.switchTo().defaultContent();
     }
 
-    public String Verify_ConfirmationMessage(){
-        return driver.findElement(Confirmation_Message).getText();
+    public void UploadImage(String FilePath){
+        driver.findElement(Upload_button).sendKeys(FilePath);
     }
+
+
 
 
 

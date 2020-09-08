@@ -1,9 +1,6 @@
 package VivayaTests;
 
-import Page_Obj.DashboardPage;
-import Page_Obj.HomePage;
-import Page_Obj.LoginPage;
-import Page_Obj.WriteBlogPage;
+import Page_Obj.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,8 +16,12 @@ public class WriteBlogTest {
     WebDriver driver;
 
     @BeforeClass
-    @Parameters({"URL", "BrowserType"})
-    public void initial_Setup(String url, String browserType) {
+    public void initial_Setup() {
+        WebDriverManager.chromedriver().setup();;
+        driver = new ChromeDriver();
+        driver.get("https://dev.vivayalive.com/");
+        driver.manage().window().maximize();
+        System.out.println(driver.getTitle());
         /*WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless"); //This line is for Headless mode in Chrome
@@ -28,7 +29,7 @@ public class WriteBlogTest {
         driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
         driver.get("https://dev.vivayalive.com");*/
 
-        if (browserType.equalsIgnoreCase("Chrome")) {
+        /*if (browserType.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.get(url);
@@ -37,10 +38,10 @@ public class WriteBlogTest {
 
         }
 
-        System.out.println("Opening" + browserType);
+        System.out.println("Opening" + browserType);*/
     }
 
-    @Test
+    @Test (priority = 0, enabled = true)
     public void CreateBlog() throws InterruptedException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
@@ -58,6 +59,7 @@ public class WriteBlogTest {
         Thread.sleep(3000);
         objWriteBlog.ChooseOfferings();
         Thread.sleep(3000);
+        objWriteBlog.UploadImage("D:\\BLOG.JPG");
         objWriteBlog.WriteContent("AUTOMATION CONTENT");
         Thread.sleep(3000);
         objWriteBlog.PressSubmit();
@@ -67,6 +69,8 @@ public class WriteBlogTest {
                 "Blog post successfully submitted");
         System.out.println("Confirmation Message: " + ConfirmationMessage);
     }
+
+
 
     @AfterClass
     public void close(){
