@@ -16,6 +16,7 @@ import org.testng.annotations.Test;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -45,11 +46,12 @@ public class BlogTest {
     }
 
     @Test (priority = 0, enabled = true)
-    public void CreateBlog() throws InterruptedException {
+    public void CreateBlog() throws InterruptedException, IOException {
         HomePage objHome = new HomePage(driver);
         LoginPage objLogin = new LoginPage(driver);
         DashboardPage objDashboard = new DashboardPage(driver);
         WriteBlogPage objWriteBlog = new WriteBlogPage(driver);
+        new DownloadImage();
         Thread.sleep(3000);
         objHome.click_Login_Link();
         objLogin.set_Guide_Credentials("valeria.fernandez@believesol.com", "user7890");
@@ -62,7 +64,7 @@ public class BlogTest {
         Thread.sleep(3000);
         objWriteBlog.ChooseOfferings();
         Thread.sleep(3000);
-        objWriteBlog.UploadImage("D:\\BLOG.JPG");
+        objWriteBlog.UploadImage("D:\\imagen.jpg");
         Thread.sleep(3000);
         objWriteBlog.WriteContent("AUTOMATION CONTENT");
         Thread.sleep(3000);
@@ -140,7 +142,7 @@ public class BlogTest {
         objAdminBlog.PressErase();
         Thread.sleep(3000);
         robot.keyPress(KeyEvent.VK_ENTER);
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         String Message = objAdminBlog.Verify_BlogMessage();
         Assert.assertEquals(Message, "×\n" +
                 "Blog post successfully deleted");
@@ -148,6 +150,8 @@ public class BlogTest {
         Thread.sleep(5000);
 
     }
+
+
 
 
 
