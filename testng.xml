@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite" parallel="classes" thread-count="3">
-    <parameter name="URL" value="https://dev.vivayalive.com"/>
+<suite name="All Test Suite" parallel="tests" thread-count="2">
+
     <test name="Test on Chrome" >
-        <parameter name="BrowserType" value="Chrome"/>
+        <parameter name="URL" value="https://dev.vivayalive.com/"/>
+        <parameter name="browser" value="Chrome"/>
         <classes>
-            <!--class name="VivayaTests.BasicTests">
-                <methods>
-                    <include name="verify_Valid_Guide_Login"/>
-                    <include name="verify_Valid_Seeker_Login"/>
-                </methods>
-            </class-->
-            <class name="VivayaTests.WriteBlogTest"></class>
-            <class name="VivayaTests.HomeLinks"></class>
-            <class name="VivayaTests.TopBarLinks"></class>
-
-
-
-
+            <class name="VivayaTests.WhatWeOfferLinks"></class>
         </classes>
     </test>
+    <test name="Test on Firefox" >
+        <parameter name="URL" value="https://dev.vivayalive.com/"/>
+        <parameter name="browser" value="Firefox"/>
+        <classes>
+            <class name="VivayaTests.WhatWeOfferLinks"></class>
+        </classes>
+    </test>
+
 </suite>

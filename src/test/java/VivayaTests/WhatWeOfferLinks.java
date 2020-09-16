@@ -2,38 +2,28 @@ package VivayaTests;
 
 import Page_Obj.TopBar;
 import Page_Obj.WhatWeOfferPage;
+import Reports.ReportManager;
+import Webdriver.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.ITestResult;
 import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
-public class WhatWeOfferLinks {
+public class WhatWeOfferLinks extends BaseTest{
     WebDriver driver;
+    @BeforeClass(alwaysRun = true)
+    @Parameters({"browser", "URL"})
+    public void initial_Setup(String browser, String URL) throws Exception {
+        driver = WebDriverFactory.getDriver(browser);
+        driver.get(URL);
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-    @BeforeClass
-    @Parameters({"URL", "BrowserType"})
-    public void initial_Setup(String url, String browserType) {
-        /*WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("headless"); //This line is for Headless mode in Chrome
-        options.addArguments("window-size=1366x768"); //This line is for Headless mode in Chrome
-        driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
-        driver.get("https://dev.vivayalive.com");*/
-
-        if (browserType.equalsIgnoreCase("Chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-            driver.get(url);
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-
-        }
-
-        System.out.println("Opening" + browserType);
     }
 
     @Test (priority = 0, enabled = true)
@@ -321,7 +311,7 @@ public class WhatWeOfferLinks {
         System.out.println("Tarot: " + PageName5);
     }
 
-    @Test
+    @Test(priority = 7, enabled = true)
     public void Verify_DanceMovementLinks()
     {
         WhatWeOfferPage objWhatWeOffer = new WhatWeOfferPage(driver);
@@ -347,9 +337,11 @@ public class WhatWeOfferLinks {
         Assert.assertEquals(PageName10, "Zumba");
         System.out.println("Zumba: " + PageName10);
     }
-    @AfterClass
-    public void close(){
-        driver.close();
+    @AfterClass(alwaysRun = true)
+    public void tearDown(){
+        if(driver != null)
+            driver.quit();
     }
+
 
 }

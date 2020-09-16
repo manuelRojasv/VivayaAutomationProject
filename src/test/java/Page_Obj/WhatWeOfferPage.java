@@ -1,5 +1,7 @@
 package Page_Obj;
 
+import Reports.ScreenShotHelper;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -68,12 +70,12 @@ public class WhatWeOfferPage {
 
     public WhatWeOfferPage(WebDriver driver){this.driver = driver;}
 
-    public String Verify_PageName(){
-        return driver.findElement(Page_name).getText();
-    }
+    public String Verify_PageName(){ return driver.findElement(Page_name).getText(); }
 
-    public void Press_AnusaraYoga(){driver.findElement(Anusara_yoga_link).click();}
-    public void Press_AshtangaYoga(){driver.findElement(Ashtanga_yoga_link).click();}
+    public void Press_AnusaraYoga(){driver.findElement(Anusara_yoga_link).click();
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Anusara Yoga");}
+    public void Press_AshtangaYoga(){driver.findElement(Ashtanga_yoga_link).click();
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Ashtanga Yoga");}
     public void Press_FamilyYoga(){driver.findElement(Family_yoga_link).click();}
     public void Press_HathaYoga(){driver.findElement(Hatha_yoga_link).click();}
     public void Press_IyengarYoga(){driver.findElement(Iyengar_yoga_link).click();}
