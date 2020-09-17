@@ -17,16 +17,16 @@ public class HomeLinks {
     WebDriver driver;
 
     @BeforeClass
-    @Parameters({"URL", "BrowserType"})
-    public void initial_Setup(String url, String browserType) {
+    @Parameters({"URL", "browser"})
+    public void initial_Setup(String url, String browser) {
         /*WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless"); //This line is for Headless mode in Chrome
         options.addArguments("window-size=1366x768"); //This line is for Headless mode in Chrome
-        driver = new ChromeDriver(options); //This line is for Headless mode in Chrome, add options as argument
+        driver = new ChromeDriverCreator(options); //This line is for Headless mode in Chrome, add options as argument
         driver.get("https://dev.vivayalive.com");*/
 
-        if (browserType.equalsIgnoreCase("Chrome")) {
+        if (browser.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
             driver.get(url);
@@ -35,7 +35,7 @@ public class HomeLinks {
 
         }
 
-        System.out.println("Opening" + browserType);
+        System.out.println("Opening" + browser);
     }
 
     @Test (priority = 0, enabled = true)

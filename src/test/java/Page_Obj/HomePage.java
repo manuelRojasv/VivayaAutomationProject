@@ -30,6 +30,7 @@ public class HomePage {
     By Page_name=By.xpath("//h1");
     By Free_trial_page_name=By.cssSelector(".col-lg-offset-2");
     By Book_your_next_class_link=By.linkText("BOOK YOUR NEXT CLASS");
+    By Home_link=By.cssSelector(".brand");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -81,6 +82,7 @@ public class HomePage {
     public void Press_ViewAllGuidesLink(){driver.findElement(View_all_guides_link).click();}
     public void Press_BecomeGuideLink(){driver.findElement(Become_guide_link).click();}
     public void Press_BookYourNextClassLink(){driver.findElement(Book_your_next_class_link).click();}
+    public void Press_Home(){driver.findElement(Home_link).click();}
 
     public String Verify_PageName(){
         return driver.findElement(Page_name).getText();
